@@ -1,6 +1,6 @@
 from googleapiclient.discovery import build
 
-def search_youtube_videos(query, max_results=10):
+def search_youtube_videos(query, max_results):
     api_key = "AIzaSyBxrj0UGS5pUrDXP5YRRlGsLpLYHirhC6s"
     youtube = build('youtube', 'v3', developerKey=api_key)
 
@@ -21,10 +21,10 @@ def search_youtube_videos(query, max_results=10):
     return video_links
 
 
-query = "factorial of a number"
+# query = "factorial of a number"
  
-max_results = 5
+# max_results = 5
 
-videos = search_youtube_videos(query, max_results)
-for video in videos:
-    print(video)
+# videos = search_youtube_videos(query, max_results)
+# for video in videos:
+#     print(video)
