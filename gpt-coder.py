@@ -8,6 +8,7 @@ st.set_page_config(
     layout="wide",
 )
 
+# ui for streamlit application
 sidebar = st.sidebar
 sidebar.title("Pages")
 sidebar.write("- Chatbot")
@@ -24,11 +25,13 @@ st.markdown(bg_img , unsafe_allow_html=True)
 
 # prompt = st.text_input("Enter your queries below:")
 def app():
+    # getting user prompt from the user
     prompt = st.text_input("Enter your queries below:")
     while(prompt):
         x = st.button('Submit', key="x")
         try : 
             if x:
+                #  getting response for the user input from the gpt-4-turbo
                 model_url="https://clarifai.com/openai/chat-completion/models/gpt-4-turbo"
                 model_prediction = Model(url=model_url,pat="de242f3fc61f4e5b9388c9dc7fe7b0a9").predict_by_bytes(prompt.title().encode(), input_type="text")  
                 st.write(model_prediction.outputs[0].data.text.raw)
